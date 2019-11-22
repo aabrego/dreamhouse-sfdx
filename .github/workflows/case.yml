@@ -1,0 +1,13 @@
+name: Starting a new work item
+
+on: repository_dispatch
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Getting tiggered from a Case!
+            shell: bash
+            run: echo 'Getting tiggered from a Case! yeah!'
+          
