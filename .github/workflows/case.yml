@@ -54,5 +54,5 @@ jobs:
             id: update_case
             uses: forcedotcom/salesforcedx-actions@master
             with:
-                args: sfdx force:data:record:update -s Case -i ${{ github.event.client_payload.caseId }} -v "Scratch_Org_Open_Url__c=${{ steps.display_url.outputs.result.result.url }} Scratch_Org_OrgId__c=${{ steps.display_user.outputs.result.result.orgId }} Scratch_Org_Instance Url__c=${{ steps.display_user.outputs.result.result.instanceUrl }} Scratch_Org_Login Url__c=${{ steps.display_user.outputs.result.result.loginUrl }} Scratch_Org_Username__c=${{ steps.display_user.outputs.result.result.username }} Scratch_Org_Password__c=${{ steps.display_user.outputs.result.result.password }}"
+                args: force:data:record:update -s Case -i ${{ github.event.client_payload.caseId }} -v "Scratch_Org_Open_Url__c=${{ steps.display_url.outputs.result.result.url }} Scratch_Org_OrgId__c=${{ steps.display_user.outputs.result.result.orgId }} Scratch_Org_Instance Url__c=${{ steps.display_user.outputs.result.result.instanceUrl }} Scratch_Org_Login Url__c=${{ steps.display_user.outputs.result.result.loginUrl }} Scratch_Org_Username__c=${{ steps.display_user.outputs.result.result.username }} Scratch_Org_Password__c=${{ steps.display_user.outputs.result.result.password }}"
 
