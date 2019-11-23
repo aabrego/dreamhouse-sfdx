@@ -54,5 +54,5 @@ jobs:
             id: update_case
             uses: forcedotcom/salesforcedx-actions@master
             with:
-                args: force:data:record:update -s Case -i ${{ github.event.client_payload.caseId }} -v "Comments='${{ steps.display_user.outputs.result }} ${{ steps.display_url.outputs.result }}'" --verbose --json
+                args: force:data:record:update -s Case -i ${{ github.event.client_payload.caseId }} -v "Comments='${{ steps.display_user.outputs.result }} ${{ steps.display_url.outputs.result }}'" --json
 
