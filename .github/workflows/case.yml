@@ -50,7 +50,7 @@ jobs:
             uses: forcedotcom/salesforcedx-actions@master
             with:
                 args: force:org:display --targetusername=new-user --verbose --json
-         - name: Update Case with Scratch Org info
+          - name: Update Case with Scratch Org info
             id: update_case
             uses: forcedotcom/salesforcedx-actions@master
             with:
