@@ -53,8 +53,8 @@ jobs:
           - name: Logging info!
             shell: bash
             run: |
-              echo {{ toJson(steps.display_url.outputs.result) }}
-              echo {{ toJson(steps.display_user.outputs.result) }}  
+              echo ${{ toJson(steps.display_url.outputs.result) }}
+              echo ${{ toJson(steps.display_user.outputs.result) }}  
           - name: Update Case with Scratch Org info
             id: update_case
             uses: forcedotcom/salesforcedx-actions@master
