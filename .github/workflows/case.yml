@@ -60,7 +60,7 @@ jobs:
             id: display_url_object
             uses: aabrego/json-to-object-action@master
             with:
-                args: ${{ steps.display_url.outputs.result }}
+                json-string: ${{ steps.display_url.outputs.result }}
           - name: Update Case with Scratch Org info
             id: update_case
             uses: forcedotcom/salesforcedx-actions@master
