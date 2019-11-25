@@ -68,5 +68,5 @@ jobs:
             id: update_case
             uses: forcedotcom/salesforcedx-actions@master
             with:
-                args: force:data:record:update -s Case -i ${{ github.event.client_payload.caseId }} -v "Scratch_Org_Open_Url__c=${{ steps.display_url_object.outputs.object }}"
+                args: force:data:record:update -s Case -i ${{ github.event.client_payload.caseId }} -v "Scratch_Org_Open_Url__c=${{ steps.display_url_object.outputs.object }}" -u devhub
 
