@@ -31,6 +31,7 @@ jobs:
             uses: forcedotcom/salesforcedx-actions@master
             with:
                 args: force:user:create --definitionfile=config/user-def.json --setalias=new-user
+            if: ${{ false }}
           - name: Change password
             uses: forcedotcom/salesforcedx-actions@master
             with:
@@ -54,10 +55,15 @@ jobs:
             shell: bash
             run: |
               echo ${{ toJson(steps.display_url.outputs.result) }}
-              echo ${{ toJson(steps.display_user.outputs.result) }}  
+              echo ${{ toJson(steps.display_user.outputs.result) }} 
+          - name: Convert Display open url output to object
+            id: display_url_object
+            uses: aabrego/json-to-object-action@master
+            with:
+                args: ${{ steps.display_url.outputs.result }}
           - name: Update Case with Scratch Org info
             id: update_case
             uses: forcedotcom/salesforcedx-actions@master
             with:
-                args: force:data:record:update -s Case -i ${{ github.event.client_payload.caseId }} -v "Scratch_Org_Display_Url_JSON__c=\'${{ steps.display_url.outputs.result }}\' Scratch_Org_Display_User_JSON__c=\'${{ steps.display_user.outputs.result }}\'"
+                args: force:data:record:update -s Case -i ${{ github.event.client_payload.caseId }} -v "Scratch_Org_Display_Url_JSON__c=${{ steps.display_url_object.outputs.object.result.url }}"
 
