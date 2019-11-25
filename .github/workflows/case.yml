@@ -61,10 +61,9 @@ jobs:
             uses: aabrego/json-to-object-action@master
             with:
                 json-string: ${{ steps.display_url.outputs.result }}
-           - name: Echo Convert Display open url output to object
-              shell: bash
-              run: |
-                echo ${{ toJson(steps.display_url_object.outputs.object }}
+          - name: Echo Convert Display open url output to object
+            shell: bash
+            run: echo ${{ toJson(steps.display_url_object.outputs.object }}
           - name: Update Case with Scratch Org info
             id: update_case
             uses: forcedotcom/salesforcedx-actions@master
